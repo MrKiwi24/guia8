@@ -23,23 +23,13 @@ public class MathematicsServices {
     }
 
     public float isBigger (Mathematics m){
-
-        float bigger = Math.max(m.getNum1(), m.getNum2());
-
-        return bigger;
-    }
-    public float powerOf (Mathematics m){
-        float powerResult;
-
-        powerResult = isBigger(m) * isSmaller(m);
-
-        return powerResult;
-
+        return Math.max(m.getNum1(), m.getNum2());
     }
     public float isSmaller (Mathematics m){
-        float smaller = Math.min(m.getNum1(), m.getNum2());
-
-        return smaller;
+        return Math.min(m.getNum1(), m.getNum2());
+    }
+    public float powerOf (Mathematics m){
+        return (float) Math.pow(isBigger(m),isSmaller(m));
     }
     public float squareRoot (Mathematics m){
         float squareRootResult;
