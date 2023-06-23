@@ -23,18 +23,13 @@ public class MathematicsServices {
     }
 
     public float isBigger (Mathematics m){
-        float bigger = 0;
 
-        if (m.getNum1() > m.getNum2()){
-            bigger = m.getNum1();
-        } else {
-            bigger = m.getNum2();
-        }
+        float bigger = Math.max(m.getNum1(), m.getNum2());
 
         return bigger;
     }
     public float powerOf (Mathematics m){
-        float powerResult = 0;
+        float powerResult;
 
         powerResult = isBigger(m) * isSmaller(m);
 
@@ -42,18 +37,12 @@ public class MathematicsServices {
 
     }
     public float isSmaller (Mathematics m){
-        float smaller = 0;
-
-        if (m.getNum1() < m.getNum2()){
-            smaller = m.getNum1();
-        } else {
-            smaller = m.getNum2();
-        }
+        float smaller = Math.min(m.getNum1(), m.getNum2());
 
         return smaller;
     }
     public float squareRoot (Mathematics m){
-        float squareRootResult = 0;
+        float squareRootResult;
 
         int rounded = Math.round(isSmaller(m));
         squareRootResult = (float) Math.sqrt(Double.parseDouble(String.valueOf(rounded)));
