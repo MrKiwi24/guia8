@@ -41,11 +41,10 @@ public class Main {
             } else {
                 if (a[i] >= 0 && a[i] <= 9) {
                     System.out.print(" |  " + df.format(a[i]));
-                    breaker++;
                 } else {
                     System.out.print(" | " + df.format(a[i]));
-                    breaker++;
                 }
+                breaker++;
             }
         }
     }
