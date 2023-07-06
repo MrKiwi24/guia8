@@ -1,19 +1,20 @@
 package entities;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Rent {
     private String renterName;
-    private Movie rentedMovie;
+    private ArrayList<Movie> rentedMovies;
     private LocalDate startRentingDate;
     private LocalDate returnDate;
 
     public Rent() {
     }
 
-    public Rent(String renterName, Movie rentedMovie, LocalDate startRentingDate, LocalDate returnDate) {
+    public Rent(String renterName, ArrayList<Movie> rentedMovies, LocalDate startRentingDate, LocalDate returnDate) {
         this.renterName = renterName;
-        this.rentedMovie = rentedMovie;
+        this.rentedMovies = rentedMovies;
         this.startRentingDate = startRentingDate;
         this.returnDate = returnDate;
     }
@@ -26,15 +27,15 @@ public class Rent {
         this.renterName = renterName;
     }
 
-    public Movie getRentedMovie() {
-        return rentedMovie;
+    public ArrayList<Movie> getRentedMovies() {
+        return rentedMovies;
     }
 
-    public void setRentedMovie(Movie rentedMovie) {
-        this.rentedMovie = rentedMovie;
+    public void setRentedMovies(ArrayList<Movie> rentedMovies) {
+        this.rentedMovies = rentedMovies;
     }
 
-    public LocalDate getStartRentingDate() {
+    public LocalDate getStartRentingDate(LocalDate now) {
         return startRentingDate;
     }
 

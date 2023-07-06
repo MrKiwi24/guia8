@@ -122,7 +122,6 @@ public class MovieService {
             }
         }
 
-
     }
     public void searchMovieByTitle(ArrayList<Movie> mList){
         String searchQuery;

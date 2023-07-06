@@ -1,6 +1,7 @@
 import entities.Movie;
 import entities.Rent;
 import services.MovieService;
+import services.RentService;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -10,6 +11,7 @@ public class Main {
     static MovieService mService = new MovieService();
     static ArrayList<Movie> movieList = new ArrayList<>();
     static ArrayList<Rent> rentList = new ArrayList<>();
+    static RentService rService = new RentService();
 
     public static void main(String[] args) {
         mainMenu();
@@ -77,10 +79,8 @@ public class Main {
             opt = Integer.parseInt(read.nextLine());
 
             switch (opt) {
-                case 1 -> {//rentMovies
-                }
-                case 2 -> {//showRents
-                }
+                case 1 -> rentList.add(rService.rentMovies(movieList));
+                case 2 -> rService.listRents(rentList);
                 case 3 -> {//searchRentByDate
                 }
                 case 4 -> {//showProfits
