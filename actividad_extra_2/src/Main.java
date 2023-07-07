@@ -5,7 +5,16 @@ import services.RentService;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
+/* TODO (high):
+*   - If a searched movie title does not exist, it should say so
+*   - If a searched movie genre does not exist, it should say so
+*   - Calculate and show all profits from rents with the 10% interest rate after the 3rd day
+*   - Search rent by date
+*   - If a wrong movie code is incorrect it should cancel the createRent and not tag the rented movies as such (buffer them)
+*   -
+* TODO (low priority)
+*   - Whenever you add a movie, it should verify whether or not is already in the list (by Title)
+* */
 public class Main {
     static Scanner read = new Scanner(System.in);
     static MovieService mService = new MovieService();
@@ -16,7 +25,6 @@ public class Main {
     public static void main(String[] args) {
         mainMenu();
     }
-
     public static void mainMenu() {
         boolean exit = false;
 
@@ -36,7 +44,6 @@ public class Main {
             }
         }
     }
-
     public static void movieMenu() {
         int opt = 0;
 
@@ -60,15 +67,13 @@ public class Main {
                 case 9 -> mainMenu();
                 case 0 -> System.exit(0);
             }
-
         }
     }
-
     public static void rentMenu() {
         int opt = 0;
 
         while (opt != 9) {
-            System.out.println("=*=*=*=*=*=*=*=*=RENTS=*=*=*=*=*=*=*=*=");
+            System.out.println("=*=*=*=*=*=*=*=*=*RENTS*=*=*=*=*=*=*=*=*=");
             System.out.println("1 - Rent Movies");
             System.out.println("2 - Show all rents");
             System.out.println("3 - Search Rent by date");
@@ -79,7 +84,7 @@ public class Main {
             opt = Integer.parseInt(read.nextLine());
 
             switch (opt) {
-                case 1 -> rentList.add(rService.rentMovies(movieList));
+                case 1 -> rentList = rService.createRents(movieList);
                 case 2 -> rService.listRents(rentList);
                 case 3 -> {//searchRentByDate
                 }
@@ -89,7 +94,6 @@ public class Main {
                 case 9 -> mainMenu();
                 case 0 -> System.exit(0);
             }
-
         }
     }
 }

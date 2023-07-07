@@ -35,7 +35,7 @@ public class Rent {
         this.rentedMovies = rentedMovies;
     }
 
-    public LocalDate getStartRentingDate(LocalDate now) {
+    public LocalDate getStartRentingDate() {
         return startRentingDate;
     }
 
