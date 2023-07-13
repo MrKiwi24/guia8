@@ -9,15 +9,15 @@ public class RoutineService {
     Scanner read = new Scanner(System.in);
     public ArrayList<Routine> loadRoutines(ArrayList<Routine> rList){
 
-        Routine r1 = new Routine(01, "Power Play Workout", 90, 5, "Is bery dificul", true);
+        Routine r1 = new Routine(rList.size(), "Power Play Workout", 90, 5, "Is bery dificul", true);
         rList.add(r1);
-        Routine r2 = new Routine(02, "Dynamic Fusion Fitness", 60, 4, "A mover la cola", true);
+        Routine r2 = new Routine(rList.size(), "Dynamic Fusion Fitness", 60, 4, "A mover la cola", true);
         rList.add(r2);
-        Routine r3 = new Routine(03, "Total Body Blitz", 120, 3, "A chivar como loco", true);
+        Routine r3 = new Routine(rList.size(), "Total Body Blitz", 120, 3, "A chivar como loco", true);
         rList.add(r3);
-        Routine r4 = new Routine(04, "Cardio Core Circuit", 60, 2, "A la cinta y a correr.", true);
+        Routine r4 = new Routine(rList.size(), "Cardio Core Circuit", 60, 2, "A la cinta y a correr.", true);
         rList.add(r4);
-        Routine r5 = new Routine(05, "Strength and Stamina Challenge", 180, 10, "Traete el bidón de agua.", true);
+        Routine r5 = new Routine(rList.size(), "Strength and Stamina Challenge", 180, 10, "Traete el bidón de agua.", true);
         rList.add(r5);
 
         return rList;
