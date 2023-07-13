@@ -59,7 +59,7 @@ public class RoutineService {
             routine.setDescription(input);
 
             routine.setIdRoutine(cont);
-            routine.isActive(true);
+            routine.setActive(true);
             rList.add(routine);
         }
         return rList;
