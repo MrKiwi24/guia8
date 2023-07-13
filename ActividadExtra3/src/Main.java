@@ -22,7 +22,6 @@ public class Main {
     static ClientService cService = new ClientService();
     static RoutineService rService = new RoutineService();
     static Scanner read = new Scanner(System.in);
-
     public static void main(String[] args) {
         routineList = rService.loadRoutines(routineList);
         clientList = cService.loadClients(clientList, routineList);
@@ -92,10 +91,5 @@ public class Main {
             }
         }
 
-    }
-    public static void waitKey(){
-        String opt;
-        System.out.println("Press 'enter' to continue...");
-        opt = read.nextLine();
     }
 }

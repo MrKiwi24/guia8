@@ -107,7 +107,7 @@ public class RoutineService {
                 input = read.nextLine();
                 String newName = input;
 
-                if (confirm(rList.get(routineID).getRoutineName())){
+                if (confirm(rList.get(routineID).getRoutineName(),"update")){
                     rList.get(routineID).setRoutineName(newName);
                 }
             }
@@ -116,7 +116,7 @@ public class RoutineService {
                 input = read.nextLine();
                 double newDuration = Double.parseDouble(input);
 
-                if (confirm(rList.get(routineID).getRoutineName())){
+                if (confirm(rList.get(routineID).getRoutineName(),"update")){
                     rList.get(routineID).setDuration(newDuration);
                 }
             }
@@ -125,7 +125,7 @@ public class RoutineService {
                 input = read.nextLine();
                 int newDifficulty = Integer.parseInt(input);
 
-                if (confirm(rList.get(routineID).getRoutineName())) {
+                if (confirm(rList.get(routineID).getRoutineName(),"update")) {
                     rList.get(routineID).setDifficultyLevel(newDifficulty);
                 }
             }
@@ -134,7 +134,7 @@ public class RoutineService {
                 input = read.nextLine();
                 String newDescription = input;
 
-                if (confirm(rList.get(routineID).getRoutineName())){
+                if (confirm(rList.get(routineID).getRoutineName(),"update")){
                     rList.get(routineID).setDescription(newDescription);
                 }
             }
@@ -155,21 +155,8 @@ public class RoutineService {
         routineID = Integer.parseInt(input);
         /*TODO: Validate clientID*/
 
-        System.out.println("Are you sure you want to delete '"+ rList.get(routineID).getRoutineName() +"' details?");
-        System.out.println("Y - Yes");
-        System.out.println("N - No");
-        input = read.nextLine();
-
-        //If your ID is set to the person's ID and not an automatic one, use this.
-        //clientList.removeIf(client -> client.getClientId() == clientId)
-        //:D
-
-        if (input.equalsIgnoreCase("y")){
+        if (confirm(rList.get(routineID).getRoutineName(),"delete")){
             rList.get(routineID).setActive(false);
-        } else if (input.equalsIgnoreCase("n")) {
-            System.out.println("The client has NOT been deleted.");
-        } else {
-            System.out.println("Incorrect option.");
         }
 
         return rList;
@@ -177,15 +164,15 @@ public class RoutineService {
     private boolean exit(String e){
         return e.equalsIgnoreCase("Q");
     }
-    private boolean confirm(String name){
+    private boolean confirm(String name, String operation){
         String input;
-        System.out.println("Are you sure you want to update '"+ name +"'s details?");
+        System.out.println("Are you sure you want to "+operation+ " '"+ name +"'s details?");
         System.out.println("Y - Yes");
         System.out.println("N - No");
         input = read.nextLine();
 
         if (input.equalsIgnoreCase("y")){
-            System.out.println("The routine info has been updated");
+            System.out.println("The routine info has been "+operation+"d");
             return true;
         } else if (input.equalsIgnoreCase("n")) {
             System.out.println("The routine has NOT been modified.");
