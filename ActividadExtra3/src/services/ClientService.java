@@ -220,7 +220,7 @@ public class ClientService {
     }
     private boolean confirm(String name){
         String input;
-        System.out.println("Are you sure you want to delete '"+ name +"'s details?");
+        System.out.println("Are you sure you want to update '"+ name +"'s details?");
         System.out.println("Y - Yes");
         System.out.println("N - No");
         input = read.nextLine();
