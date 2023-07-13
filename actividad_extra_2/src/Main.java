@@ -10,8 +10,7 @@ import java.util.Scanner;
 *   - If a searched movie genre does not exist, it should say so
 *   - Calculate and show all profits from rents with the 10% interest rate after the 3rd day
 *   - Search rent by date
-*   - If a wrong movie code is incorrect it should cancel the createRent and not tag the rented movies as such (buffer them)
-*   -
+*   - If a movie code is incorrect it should cancel the createRent and not tag the rented movies as such (buffer them)
 * TODO (low priority)
 *   - Whenever you add a movie, it should verify whether or not is already in the list (by Title)
 * */
@@ -23,6 +22,7 @@ public class Main {
     static RentService rService = new RentService();
 
     public static void main(String[] args) {
+        movieList = mService.createMovie();
         mainMenu();
     }
     public static void mainMenu() {
@@ -59,7 +59,7 @@ public class Main {
             opt = Integer.parseInt(read.nextLine());
 
             switch (opt) {
-                case 1 -> movieList = mService.createMovie();
+                case 1 -> movieList = mService.createMovie(movieList);
                 case 2 -> mService.listAvailableMovies(movieList);
                 case 3 -> mService.searchMovieByTitle(movieList);
                 case 4 -> mService.searchMovieByGenre(movieList);
@@ -76,7 +76,7 @@ public class Main {
             System.out.println("=*=*=*=*=*=*=*=*=*RENTS*=*=*=*=*=*=*=*=*=");
             System.out.println("1 - Rent Movies");
             System.out.println("2 - Show all rents");
-            System.out.println("3 - Search Rent by date");
+            System.out.println("3 - Search Rent by date" );
             System.out.println("4 - Show all profits from rents");
             System.out.println("9 - Go back to Main Menu");
             System.out.println("0 - Exit program");

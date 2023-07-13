@@ -6,10 +6,50 @@ import java.util.Scanner;
 
 public class MovieService {
     Scanner read = new Scanner(System.in);
+
+    public ArrayList<Movie> createMovie(ArrayList<Movie> movieList){
+        boolean exit = false;
+        String opt;
+
+        while (!exit){
+
+            System.out.println("Add movie? Y = Yes / N = No");
+            opt = read.nextLine();
+
+            if (opt.equalsIgnoreCase("y")){
+                Movie m = new Movie();
+
+                System.out.println("Movie Title: ");
+                m.setTitle(read.nextLine());
+
+                System.out.println("Movie Genre: ");
+                m.setGenre(read.nextLine());
+
+                System.out.println("Movie Release Year: ");
+                m.setReleaseYear(Integer.parseInt(read.nextLine()));
+
+                System.out.println("Movie Duration (in minutes): ");
+                m.setRuntimeInMinutes(Integer.parseInt(read.nextLine()));
+
+                m.setRented(false);
+
+                movieList.add(m);
+            } else {
+                exit = true;
+            }
+
+        }
+
+        return movieList;
+    }
     public ArrayList<Movie> createMovie(){
 
         ArrayList<Movie> movie = new ArrayList<>();
-// THIS IS THE REAL CODE. IT WORKS.
+        /*  THIS IS THE REAL CODE. IT WORKS.
+            This is for normal input.
+            Change the movieMenu > switch > case1 to
+            movieList.add(mService.createMovie(movieList)) */
+
 //        boolean exit = false;
 //        String opt;
 //
