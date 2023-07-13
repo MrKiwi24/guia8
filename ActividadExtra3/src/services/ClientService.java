@@ -3,14 +3,29 @@ package services;
 import entities.Client;
 import entities.Routine;
 
-import java.sql.SQLOutput;
 import java.util.ArrayList;
-import java.util.Objects;
 import java.util.Scanner;
 
 public class ClientService {
     RoutineService rService = new RoutineService();
     Scanner read = new Scanner(System.in);
+    public ArrayList<Client> loadClients (ArrayList<Client> cList,  ArrayList<Routine> rList){
+
+        Client c1 = new Client(cList.size(), "Alberto", 23, 1.80, 180, "Ganar musculatura", true, rList.get(0));
+        cList.add(c1);
+        Client c2 = new Client(cList.size(), "Benita", 68, 1.54, 60, "Perder 'rollitos'", true, rList.get(1));
+        cList.add(c2);
+        Client c3 = new Client(cList.size(), "Carmen", 40, 1.40, 55, "Bajar de peso", true, rList.get(3));
+        cList.add(c3);
+        Client c4 = new Client(cList.size(), "Delario", 36, 1.64, 64, "Ganar fibra", true, rList.get(4));
+        cList.add(c4);
+        Client c5 = new Client(cList.size(), "Ernestina", 15, 1.90, 80, "Hacer una actividad", true, rList.get(2));
+        cList.add(c5);
+        Client c6 = new Client(cList.size(), "Fabricio", 17, 1.70, 70, "Ganr musculatura", true, rList.get(2));
+        cList.add(c6);
+
+        return cList;
+    }
     public ArrayList<Client> createClient (ArrayList<Client> cList,  ArrayList<Routine> rList){
 
         String input = "a";
@@ -56,7 +71,7 @@ public class ClientService {
             }
             client.setObjective(input);
 
-            System.out.println("in [int] routineID (0 - 4): ");
+            System.out.println("in [int] routineID (0 up to "+(cList.size()-1)+"): ");
             input = read.nextLine();
             if(exit(input)){
                 break;
@@ -77,16 +92,16 @@ public class ClientService {
         System.out.println("-----------------------------------------");
         System.out.println("=*=*=*=*=*=*=*=*=CLIENTS=*=*=*=*=*=*=*=*=");
 
-        for(int i = 0; i < cList.size(); i++) {
-            if(cList.get(i).isActiveClient()){
+        for (Client client : cList) {
+            if (client.isActiveClient()) {
                 System.out.println("-Client Code |-----------Client Name------");
-                System.out.println("\t"+cList.get(i).getIdClient() +"\t\t |\t" + cList.get(i).getName());
+                System.out.println("\t" + client.getIdClient() + "\t\t |\t" + client.getName());
                 System.out.println("----------------DETAILS------------------");
-                System.out.println("Height:\t\t |\t\t" +cList.get(i).getHeight());
-                System.out.println("Weight:\t\t |\t\t" +cList.get(i).getWeight());
-                System.out.println("Age:\t\t |\t\t" +cList.get(i).getAge());
-                System.out.println("Objective:\t |\t\t" +cList.get(i).getObjective());
-                System.out.println("Routine name:|\t\t" + cList.get(i).getRoutine().getRoutineName());
+                System.out.println("Height:\t\t |\t\t" + client.getHeight());
+                System.out.println("Weight:\t\t |\t\t" + client.getWeight());
+                System.out.println("Age:\t\t |\t\t" + client.getAge());
+                System.out.println("Objective:\t |\t\t" + client.getObjective());
+                System.out.println("Routine name:|\t\t" + client.getRoutine().getRoutineName());
                 System.out.println("=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=");
             }
         }
@@ -129,13 +144,6 @@ public class ClientService {
         input = read.nextLine();
         clientID = Integer.parseInt(input);
 
-//    private String name;
-//    private int age;
-//    private double height;
-//    private double weight;
-//    private String objective;
-//    private boolean isActiveClient;
-//    private Routine routine;
 
         System.out.println("Do you wish to modify:");
         System.out.println("1 - Name");
@@ -208,10 +216,7 @@ public class ClientService {
         return cList;
     }
     private boolean exit(String e){
-        if(e.equalsIgnoreCase("Q")){
-            return true;
-        }
-       return false;
+        return e.equalsIgnoreCase("Q");
     }
     public void waitKey(){
         String opt;
