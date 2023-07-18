@@ -25,6 +25,7 @@ public class Main {
                 break;
             }
         }
+        showBlanksAndLetters(letters);
         if (tries == 0) {
             showHangedMan(tries);
             System.out.println("You've lost!");
@@ -55,8 +56,9 @@ public class Main {
         wordList.add("Oportunidad");
         wordList.add("Guardar");
         wordList.add("Longitud");
+        wordList.add("hipopotomonstrosesquipedaliofobia");
 
-        int randomNum = ThreadLocalRandom.current().nextInt(0, 7);
+        int randomNum = ThreadLocalRandom.current().nextInt(0, 9);
         String word = wordList.get(randomNum);
 
         return word;
